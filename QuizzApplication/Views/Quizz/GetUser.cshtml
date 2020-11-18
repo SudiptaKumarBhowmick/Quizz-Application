@@ -1,0 +1,26 @@
+﻿@model QuizzApplication.viewModels.UserVM
+
+@{
+    ViewBag.Title = "User";
+}
+
+<div class="panel panel-default" style="width: 30%; margin: 10% 32%;">
+    <div class="panel-heading">Let's Begin  ^_^ <fa class="fa fa-smile-o"></fa></div>
+    <div class="panel-body">
+
+        @using (Html.BeginForm("GetUser", "Quizz", FormMethod.Post))
+        {
+            @Html.EditorFor(c => c.FullName, new { htmlAttributes = new { @class = "form-control", @placeholder = "FullName ...", @autocomplete = "off", @style = "width:100%; margin-left: 56px;" } })<br />
+            <button type="submit" id="Enter" class="btn btn-info btn-lg" style="width:100%;"><span class="glyphicon glyphicon-user"></span>   Enter</button>
+        }
+    <div class="sign_up">
+        <p>Create a new account? <a href="@Url.Action("Register","Quizz")">Sign Up</a>.</p>
+    </div>
+
+    </div>
+
+    @if (ViewBag.Msg != null)
+    {
+        <div class="well well-sm well-danger"> @ViewBag.Msg </div>
+    }
+</div>  
